@@ -5,25 +5,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 @Entity
-@Table(name="categorias")
+@Table(name="Categorias")
 public class Categoria {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer idcategorias;
+	private Integer id;
 	private String nombre;
 	private String descripcion;
 
-
-
-	public Integer getIdcategorias() {
-		return idcategorias;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setIdcategorias(Integer idcategorias) {
-		this.idcategorias = idcategorias;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getNombre() {
@@ -44,9 +41,7 @@ public class Categoria {
 
 	@Override
 	public String toString() {
-		return "Categoria [idcategorias=" + idcategorias + ", nombre=" + nombre + ", descripcion=" + descripcion + "]";
+		return "Categoria [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + "]";
 	}
-
-	
 
 }

@@ -12,6 +12,9 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
   <link rel="shortcut icon" th:href="@{/images/favicon.png}" type="">
+      <!-- Custom styles for this template -->
+    <link th:href="@{/bootstrap/css/jumbotron.css}" rel="stylesheet">
+    <link th:href="@{/bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
 
   <title> Feane </title>
 
@@ -36,51 +39,52 @@
 <header th:insert="fragments/menu.html :: navegador" style="background-color:#222831"></header>
 
 
- <!-- book section -->
-  <section class="book_section layout_padding">
-    <div class="container">
-      <div class="heading_container">
-        <h2>
-          Registrar Categoria
-        </h2>
-      </div>
-      
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form_container">
-            <form th:action="@{/Registro/save}" method="get">
-              <div>
-                <select name="nombre" class="form-control">
-                	<option value="Burger">Burger</option>
-                	<option value="Pizza">Pizza</option>
-                	<option value="Pasta">Pasta</option>
-                	<option value="Fries">Fries</option>
-                </select>
-              </div>
-              <div>
-                <input name="descripcion" id="descripcion" type="text" class="form-control" placeholder="descripcion" />
-              </div>
-             
-              <div class="btn_box">
-                <button>
-              Registrar 
-                </button>
-              </div>
+<main role="main">     
+      <hr>
+      <div class="container"> 
+
+        <div class="card">
+          <h4 class="card-header"><strong>Datos de la categoría</strong></h4>              
+          <div class="card-body">
+            <form th:action="@{/categorias/save}" method="post" th:object="${categoria}">
+            <!-- para vincular nuestro HTML form con el objeto de modelo de el metodo crear, usamos el th:objetct -->
+              
+              <!--${#fields.hasErrors('*')} = regresa un valor verdadero o falso   -->
+              <div th:if="${#fields.hasErrors('*')}"class='alert alert-danger' role='alert'>
+				Por favor corrija los siguientes errores:<!-- aparece el mensaje si la condicion de errores se cumple -->
+				<ul>
+				<!--recorremos la coleccion de errores que hay  -->
+				<li th:each="err : ${#fields.errors('*')}" th:text="${err}"/><!--por cada error se despliega el texto que contenga la expresion err(Variable temporal)  -->
+				</ul>
+			  </div>    
+			            
+              <div class="row">
+                <div class="col-md-6"> 
+                  <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                     <input type="hidden" th:field="*{id}">
+                    <input type="text" class="form-control" th:field="*{nombre}" id="nombre" name="nombre" placeholder="Escriba el nombre de la categoria" required="required">
+                  </div>
+                </div>                
+              </div> 
+              <div class="row">
+                <div class="col-md-6"> 
+                  <div class="form-group">
+                    <label for="descripcion">Descripción</label>
+                    <textarea class="form-control" name="descripcion" th:field="*{descripcion}" id="descripcion" rows="2"></textarea>
+                  </div> 
+                </div>                
+              </div> 
+              <hr>
+              <button type="submit" title="Guardar el registro." class="btn btn-primary">Guardar</button>  
             </form>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="map_container ">
-            <div id="googleMap"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- end book section -->
+      </div> <!-- /container -->
+
+    </main>
 
    <footer th:insert="fragments/footer.html :: pie-pagina" class="footer">
-    
     </footer>
 
   <!-- jQery -->
