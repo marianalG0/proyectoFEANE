@@ -15,19 +15,22 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item">
-                <a class="nav-link" href="/">Home </a>
+                <a class="nav-link" th:href="@{/}">Home </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/menu">Menu</a>
+                <a class="nav-link" th:href="@{/menu}">Menu</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/about">About </a>
+                <a class="nav-link" th:href="@{/sobre}">About </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/tabla">Table </a>
+                <a class="nav-link" th:href="@{/tabla}">Table </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" th:href="@{/menu/index}">Comida </a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="Registro/create">Book Table <span class="sr-only">(current)</span> </a>
+                <a class="nav-link" th:href="@{/Registro/create}">Book Table <span class="sr-only">(current)</span> </a>
               </li>
             </ul>
             <div class="user_option">

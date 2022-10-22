@@ -4,7 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+
 
 @Entity
 @Table(name="menu")
@@ -12,23 +16,21 @@ public class Menu {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer idmenu;
+	private Integer id;
 	private String nombre;
 	private String descripcion;
 	private String detalles;
 	private String descuento;
-	private Integer idcategoria;
+	//private Integer idcategoria;
+	@OneToOne
+	@JoinColumn(name="id")
+	private Categoria categoria;
+	private String estatus;
 	private Double precio;
 	private Integer oferta;
 	private String imagen="no-image.png";
 	
-	
-	public Integer getIdmenu() {
-		return idmenu;
-	}
-	public void setIdmenu(Integer idmenu) {
-		this.idmenu = idmenu;
-	}
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -53,12 +55,13 @@ public class Menu {
 	public void setDescuento(String descuento) {
 		this.descuento = descuento;
 	}
-	public Integer getIdcategoria() {
+	/**public Integer getIdcategoria() {
 		return idcategoria;
 	}
 	public void setIdcategoria(Integer idcategoria) {
 		this.idcategoria = idcategoria;
-	}
+	}*/
+	
 	public Double getPrecio() {
 		return precio;
 	}
@@ -78,12 +81,34 @@ public class Menu {
 		this.imagen = imagen;
 	}
 	
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getEstatus() {
+		return estatus;
+	}
+	public void setEstatus(String estatus) {
+		this.estatus = estatus;
+	}
 	@Override
 	public String toString() {
-		return "menu [idmenu=" + idmenu + ", nombre=" + nombre + ", descripcion=" + descripcion + ", detalles="
-				+ detalles + ", descuento=" + descuento + ", idcategoria=" + idcategoria + ", precio=" + precio
-				+ ", oferta=" + oferta + ", imagen=" + imagen + "]";
+		return "Menu [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", detalles=" + detalles
+				+ ", descuento=" + descuento + ", categoria=" + categoria + ", precio=" + precio + ", oferta=" + oferta
+				+ ", imagen=" + imagen + "]";
 	}
+	
+	
 	
 	
 }
