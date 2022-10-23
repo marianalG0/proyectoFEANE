@@ -1,19 +1,28 @@
 package com.spring.boot.newapp.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring.boot.newapp.model.Menu;
+import com.spring.boot.newapp.model.Perfil;
+import com.spring.boot.newapp.model.Usuario;
 import com.spring.boot.newapp.service.IMenuService;
+import com.spring.boot.newapp.service.IUsuariosService;
 
 
 @Controller
 public class HomeController {
 	
+	@Autowired
+    private IUsuariosService serviceUsuarios;
 	@Autowired
 	private IMenuService serviceMenu;
 	
@@ -73,6 +82,26 @@ public class HomeController {
 			return "descuentos";
 
 		} 
+		@GetMapping("/signup")
+		public String registrarse(Usuario usuario) {
+			return "usuarios/formRegistro";
+		}
+		//Ejercicio
+		@PostMapping("/signup")
+		public String guardarRegistro(Usuario usuario, BindingResult result, RedirectAttributes attributes) {
+			//Ejercicio.
+			 usuario.setEstatus(1);
+			 usuario.setFechaRegistro(new Date());
+			 
+			 Perfil perfil = new Perfil();
+			 perfil.setId(3);
+			 usuario.agregar(perfil);
+			 //
+			serviceUsuarios.guardar(usuario); 
+			attributes.addFlashAttribute("msg", "Los datos se guardaron correctamente"); 	
+			// Ejercicio realizar
+			return "redirect:/usuarios/index";
+		}
 		
 		
 		
