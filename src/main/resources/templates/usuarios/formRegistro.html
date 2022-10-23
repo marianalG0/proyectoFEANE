@@ -33,48 +33,50 @@
 
 <body style="background-color:#FBF7E8">
 <header th:insert="fragments/menu.html :: navegador" style="background-color:#222831"></header>
+
     <main role="main">     
       <hr>
       <div class="container"> 
 
         <div class="card">
-          <h4 class="card-header"><strong>Listado de Usuarios</strong></h4>              
-          <div class="card-body">            
-            <hr>
-              <div th:if="${msg != null}" class='alert alert-success' th:text="${msg}" style="text-align:center" role='alert'></div> <!-- Se ingresa el nombre dle atributo para mostrar el mensaje  -->
-            <table class="table table-hover">
-              <thead class="thead-light">
-                <tr>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Username</th>                  
-                  <th scope="col">Email</th>
-                  <th scope="col">Estatus</th>
-                  <th scope="col">Operaciones</th>
-                </tr>
-              </thead>
-              <tbody>
-              <tr th:each="usuario : ${usuarios} ">
-              <td th:text="${usuario.nombre}"></td>
-               <td th:text="${usuario.username}"></td>
-                <td th:text="${usuario.email}"></td>
-                 <td th:text="${usuario.estatus==1 ? 'Activo' : 'No activo' }"></td>
-          
-                <td>
-                    <a th:href="@{/usuarios/delete/{id} (id=${usuario.id}) }" onclick=" confirm('¿Estas seguro?')" class="btn btn-success btn-sm" role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
-                    <a href="#" onclick=" confirm('¿Quiere bloquear el acceso al usuario?')" class="btn btn-success btn-sm" role="button" title="Bloquear el acceso al sistema para este usuario."><i class="fas fa-lock" aria-hidden="true"></i></a>	
-                    <a href="#" onclick=" confirm('¿Desea desbloquear el usuario?')" class="btn btn-success btn-sm" role="button" title="Permitir el acceso al sistema a este usuario."><i class="fas fa-unlock" aria-hidden="true"></i></a>
-                  </td>
-                </tr>
-                                               
-              </tbody>
-            </table>
-            
+          <h4 class="card-header"><strong>Formulario de registro</strong></h4>              
+          <div class="card-body">
+            <form th:action="@{/signup}" method="post" th:object="${usuario}">               
+              <div class="row">
+                <div class="col-md-3"> 
+                  <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Escriba su nombre" required="required">
+                  </div>
+                </div>
+                <div class="col-md-3"> 
+                  <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Escriba su correo electrónico" required="required">
+                  </div> 
+                </div>    
+                <div class="col-md-3"> 
+                  <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Escriba su nombre de usuario" required="required">
+                  </div>
+                </div>
+                <div class="col-md-3"> 
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Escriba su clave de acceso" required="required">
+                  </div>
+                </div>
+              </div>                  
+              <hr>
+              <button type="submit" title="Quiero registrarme." class="btn btn-primary">Registrarse</button>  
+            </form>
           </div>
         </div>
       </div> <!-- /container -->
 
     </main>
-    <footer th:insert="fragments/footer.html :: pie-pagina" class="footer">
+     <footer th:insert="fragments/footer.html :: pie-pagina" class="footer">
     
     </footer>
 
