@@ -15,7 +15,7 @@ import com.spring.boot.newapp.repository.MenuRepository;
 import com.spring.boot.newapp.service.IMenuService;
 
 @Service
-
+@Primary
 public class MenuServicejpa implements IMenuService {
 
 	@Autowired
@@ -23,14 +23,12 @@ public class MenuServicejpa implements IMenuService {
 	
 	@Override
 	public List<Menu> buscarTodo() {
-		// TODO Auto-generated method stub
 		return menuRepo.findAll();
 	}
 
 	@Override
-	public Menu buscarPorId(Integer id) {
-		// TODO Auto-generated method stub
-		Optional<Menu> optional = menuRepo.findById(id);
+	public Menu buscarPorId(Integer idmenu) {
+		Optional<Menu> optional = menuRepo.findById(idmenu);
 		if(optional.isPresent()) {
 		  return optional.get();
 		}
@@ -50,21 +48,18 @@ public class MenuServicejpa implements IMenuService {
 	}
 
 	@Override
-	public void eliminar(Integer id) {
-		// TODO Auto-generated method stub
-		menuRepo.deleteById(id);
+	public void eliminar(Integer idmenu) {
+		menuRepo.deleteById(idmenu);
 
 	}
 
 	@Override
 	public List<Menu> buscarByExample(Example<Menu> example) {
-		// TODO Auto-generated method stub
 		return menuRepo.findAll(example);
 	}
 
 	@Override
 	public Page<Menu> buscarTodas(Pageable page) {
-		// TODO Auto-generated method stub
 		return menuRepo.findAll(page);
 	}
 

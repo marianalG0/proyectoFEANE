@@ -10,8 +10,6 @@ import org.springframework.data.domain.Pageable;
 
 import com.spring.boot.newapp.model.Menu;
 
-
-@Primary
 public interface IMenuService {
 	
 	List<Menu> buscarTodo();
