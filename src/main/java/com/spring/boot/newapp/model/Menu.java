@@ -1,5 +1,7 @@
 package com.spring.boot.newapp.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,21 +18,26 @@ public class Menu {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+    private Integer id;
 	private String nombre;
 	private String descripcion;
-	private String detalles;
-	private String descuento;
-	//private Integer idcategoria;
-	@OneToOne
-	@JoinColumn(name="id")
-	private Categoria categoria;
-	private String estatus;
+	private Date fecha; /*Se le importa su extension*/
 	private Double precio;
+	private Integer descuento;
 	private Integer oferta;
 	private String imagen="no-image.png";
-	
-
+	private String estatus;
+	private String detalles; 
+	//@Transient // se ignora el mapeo de categoria
+	@OneToOne // representa la relacion uno a uno (1:1)
+	@JoinColumn(name="idCategoria")
+	private Categoria categoria;
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public String getNombre() {
 		return nombre;
 	}
@@ -43,30 +50,23 @@ public class Menu {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	public String getDetalles() {
-		return detalles;
+	public Date getFecha() {
+		return fecha;
 	}
-	public void setDetalles(String detalles) {
-		this.detalles = detalles;
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
 	}
-	public String getDescuento() {
-		return descuento;
-	}
-	public void setDescuento(String descuento) {
-		this.descuento = descuento;
-	}
-	/**public Integer getIdcategoria() {
-		return idcategoria;
-	}
-	public void setIdcategoria(Integer idcategoria) {
-		this.idcategoria = idcategoria;
-	}*/
-	
 	public Double getPrecio() {
 		return precio;
 	}
 	public void setPrecio(Double precio) {
 		this.precio = precio;
+	}
+	public Integer getDescuento() {
+		return descuento;
+	}
+	public void setDescuento(Integer descuento) {
+		this.descuento = descuento;
 	}
 	public Integer getOferta() {
 		return oferta;
@@ -80,35 +80,35 @@ public class Menu {
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
-	
-	public Categoria getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
-	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
 	public String getEstatus() {
 		return estatus;
 	}
 	public void setEstatus(String estatus) {
 		this.estatus = estatus;
 	}
+	public String getDetalles() {
+		return detalles;
+	}
+	public void setDetalles(String detalles) {
+		this.detalles = detalles;
+	}
+	public Categoria getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+	
+	public void reset() {
+		this.imagen=null;
+	}
 	@Override
 	public String toString() {
-		return "Menu [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", detalles=" + detalles
-				+ ", descuento=" + descuento + ", categoria=" + categoria + ", precio=" + precio + ", oferta=" + oferta
-				+ ", imagen=" + imagen + "]";
+		return "Menu [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", fecha=" + fecha
+				+ ", precio=" + precio + ", descuento=" + descuento + ", oferta=" + oferta + ", imagen=" + imagen
+				+ ", estatus=" + estatus + ", detalles=" + detalles + ", categoria=" + categoria + "]";
 	}
 	
 	
-	
-	
+
 }

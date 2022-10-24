@@ -39,7 +39,7 @@ public class HomeController {
 		menu.setNombre("Deliciosa hambuerguesa");
 		menu.setDescripcion("Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit,");
 		menu.setPrecio(80.0);
-		menu.setDescuento("16%");
+		menu.setDescuento(16);
 		model.addAttribute("menu", menu);
 		return "detalle";
 	}

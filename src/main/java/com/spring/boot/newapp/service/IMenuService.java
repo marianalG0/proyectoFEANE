@@ -19,7 +19,7 @@ public interface IMenuService {
 	
 	void guardar(Menu menu);
 	
-	List<Menu> buscarDestacadas();
+	List<Menu> buscarOfertas();
 	
 	void eliminar(Integer idmenu);
 	

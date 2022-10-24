@@ -45,9 +45,8 @@ public class MenuServicejpa implements IMenuService {
 	}
 
 	@Override
-	public List<Menu> buscarDestacadas() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Menu> buscarOfertas() {
+		return menuRepo.findByOfertaAndEstatusOrderByIdDesc(1, "Aprobada");
 	}
 
 	@Override
