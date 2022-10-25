@@ -230,21 +230,21 @@
 
       <div class="filters-content">
         <div class="row grid">
-          <div class="col-sm-6 col-lg-4 all" th:each="comida : ${comidas}"><!-- Empieza el each de comida -->
+          <div class="col-sm-6 col-lg-4 all" th:each="menu : ${menus}"><!-- Empieza el each de comida -->
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img th:src="@{/images/{img} (img=${comida.imagen})}" alt="">
+                  <img th:src="@{/images/{img} (img=${menu.imagen})}" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
-                    <strong>Nombre: </strong> <span th:text="${comida.nombre}"></span>
+                    <strong>Nombre: </strong> <span th:text="${menu.nombre}"></span>
                   </h5>
-                  <p th:text="${comida.descripcion}">
+                  <p th:text="${menu.descripcion}">
                   </p>
                   <div class="options">
                     <h6>
-                      <span th:text="${comida.precio}"></span>
+                      <span th:text="${menu.precio}"></span>
                     </h6>
                     <a href="">
                       <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">

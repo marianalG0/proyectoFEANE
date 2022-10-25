@@ -9,11 +9,15 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.spring.boot.newapp.model.Compras;
 import com.spring.boot.newapp.model.Menu;
 import com.spring.boot.newapp.model.Perfil;
 import com.spring.boot.newapp.model.Usuario;
+import com.spring.boot.newapp.service.IComprasService;
 import com.spring.boot.newapp.service.IMenuService;
 import com.spring.boot.newapp.service.IUsuariosService;
 
@@ -70,7 +74,7 @@ public class HomeController {
 		public String mostrarmenu(Model model) {
 			List<Menu> lista = serviceMenu.buscarTodo();
 			model.addAttribute("menus", lista);
-			return "menu";
+			return "carteleraMenu";
 
 		} 
 		
@@ -102,6 +106,16 @@ public class HomeController {
 			// Ejercicio realizar
 			return "redirect:/usuarios/index";
 		}
+		
+		/**@PostMapping("/save")
+		public String guardar(Compras compras, BindingResult result, RedirectAttributes attributes,
+				@RequestParam("archivoImagen") MultipartFile multiPart, Model model) {
+			
+			serviceCompra.guardar(compras);
+			attributes.addFlashAttribute("msg", "Registro Guardado");		
+			System.out.println("Menu: " + compras);		
+			return "redirect:/menu/indexPaginate";
+		}*/
 		
 		
 		
