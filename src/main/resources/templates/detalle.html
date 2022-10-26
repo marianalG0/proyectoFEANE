@@ -38,21 +38,21 @@
 
         <div class="row">
           <div class="col-md-3">            
-            <img class="rounded mx-auto d-block" th:src="@{/images/{img} (img=${comida.imagen})}" alt="Generic placeholder image" width="220" height="220">            
-          </div>
+            <img class="rounded mx-auto d-block" th:src="@{/logos/{img} (img=${menu.imagen})}" alt="Generic placeholder image" width="220" height="220">            
+          </div> 
           <div class="col-md-9">
             <div class="card">
-              <h4 class="card-header"> <strong th:text="${comida.nombre}"></strong></h4>              
+              <h4 class="card-header"> <strong th:text="${menu.nombre}"></strong></h4>              
               <div class="card-body">
-                <h5 class="card-title"><strong>Categoría: </strong> <span th:if="${comida.categoria==1}" class="text-white btn btn-warning">Hamburguesa</span><span th:if="${comida.categoria==2}" class="text-white btn btn-success">Pizza</span><span th:if="${comida.categoria==3}" class="text-white btn btn-danger">Pasta</span><span th:if="${comida.categoria==4}" class="text-white btn btn-info ">Papas fritas</span></h5>                
-                <h6 class="card-title"><strong>Precio: </strong><span th:text="${comida.precio}"></span></h6>
+                <h5 class="card-title"><strong>Categoría: </strong> <span th:if="${menu.categoria.nombre}" class="text-white btn btn-warning">Hamburguesa</span></h5>                
+                <h6 class="card-title"><strong>Precio: </strong><span th:text="${menu.precio}"></span></h6>
            
-                <h6 class="card-title"><strong>Descuento: </strong><span th:text="${comida.descuento}"></span></h6>
+                <h6 class="card-title"><strong>Descuento: </strong><span th:text="${menu.descuento}"></span></h6>
                 
                 <div class="card bg-light mb-3" >
                   <div class="card-body">
                     <h5 class="card-title">Detalles del platillo</h5>
-                    <p class="card-text" th:text="${comida.descripcion}"></p>
+                    <p class="card-text" th:text="${menu.descripcion}"></p>
                   </div>
                 </div>   
                 <a class="btn btn-primary" href="#" role="button" title="Quiero ordenar" style="background-color:#222831"> 

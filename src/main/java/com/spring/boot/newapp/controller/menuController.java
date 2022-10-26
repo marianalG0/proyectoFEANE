@@ -102,16 +102,17 @@ public class menuController {
 		return "menu/formMenu"; 
 	}
 	
-	/*@GetMapping("/view/{id}")
+	@GetMapping("/view/{id}")
 	public String verDetalle(@PathVariable("id") int idmenu, Model model) {
 		
 		Menu menu = serviceMenu.buscarPorId(idmenu);
 	
 		System.out.println("Comida: " + menu);
-		model.addAttribute("comida", menu);
+		model.addAttribute("menu", menu);
 		return "detalle";
 		
-	}*/
+	}
+	
 	@ModelAttribute // para que lo pudamos usar en cualquier metodo
 	public void setGenericos(Model model) {
 		model.addAttribute("categorias", serviceCategorias.buscarTodas());

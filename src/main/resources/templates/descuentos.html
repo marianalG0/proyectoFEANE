@@ -37,19 +37,19 @@
   <section class="offer_section layout_padding-bottom">
     <div class="offer_container">
       <div class="container ">
-        <div class="row">
-          <div class="col-md-6  " th:each="comida : ${comidas}">
-          <div th:if="${comida.oferta==1}">
+        <div class="row" >
+          <div class="col-md-6  " th:each="menu : ${menus}">
+          <div th:if="${menu.oferta==1}" >
             <div class="box ">
               <div class="img-box">
-                <img class="rounded mx-auto d-block" th:src="@{/images/{img} (img=${comida.imagen})}" alt="Generic placeholder image" width="220" height="220">  
+                <img class="rounded mx-auto d-block" th:src="@{/logos/{img} (img=${menu.imagen})}" alt="Generic placeholder image" width="220" height="220">  
               </div>
               <div class="detail-box">
                 <h5>
-    				<strong th:text="${comida.nombre}">Ingeniero Civil</strong>
+    				<strong th:text="${menu.nombre}">Ingeniero Civil</strong>
                 </h5>
                 <h6>
-                  <span th:text="${comida.descuento}"></span>
+                  <span th:text="${menu.descuento}"></span>
                 </h6>
                 <a th:href="@{/about}">
                   Order Now <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">

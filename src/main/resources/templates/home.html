@@ -234,7 +234,7 @@
             <div class="box">
               <div>
                 <div class="img-box">
-                  <img th:src="@{/images/{img} (img=${menu.imagen})}" alt="">
+                  <img th:src="@{/logos/{img} (img=${menu.imagen})}" alt="">
                 </div>
                 <div class="detail-box">
                   <h5>
@@ -300,6 +300,7 @@
                         </g>
                       </svg>
                     </a>
+                     <a class="btn" th:href="@{/menu/view/{id} (id=${menu.id}) }" role="button">&raquo;</a>
                   </div>
                 </div> 
               </div>

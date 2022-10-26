@@ -15,4 +15,5 @@ public interface MenuRepository extends JpaRepository<Menu, Integer> {
 	//List <Menu> findBySalarioBetweenOrderBySalarioDesc(double s1, double s2); // metodo para buscar un salario definido en cierto rango y que vaya en orden descendente 
 
 	List<Menu> findByEstatusIn(String[] estatus);
+	
 }

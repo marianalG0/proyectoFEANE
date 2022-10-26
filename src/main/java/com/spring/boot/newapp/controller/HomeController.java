@@ -53,6 +53,7 @@ public class HomeController {
 		@GetMapping("/") 
 		public String mostrarHome(Model model) {
 			List<Menu> lista = serviceMenu.buscarTodo();
+			model.addAttribute("menus", serviceMenu.buscarOfertas());
 			model.addAttribute("menus", lista);
 			return "home";
 
@@ -78,14 +79,23 @@ public class HomeController {
 
 		} 
 		
+		
+		@GetMapping("/sobre") 
+		public String mostrarsobre(Model model) {
+			List<Menu> lista = serviceMenu.buscarTodo();
+			model.addAttribute("menus", lista);
+			return "sobre";
+
+		} 
+		
 
 		@GetMapping("/descuentos") 
 		public String mostrardesc(Model model) {
 			List<Menu> lista = serviceMenu.buscarTodo();
 			model.addAttribute("menus", lista);
 			return "descuentos";
-
 		} 
+		
 		@GetMapping("/signup")
 		public String registrarse(Usuario usuario) {
 			return "usuarios/formRegistro";
@@ -116,6 +126,10 @@ public class HomeController {
 			System.out.println("Menu: " + compras);		
 			return "redirect:/menu/indexPaginate";
 		}*/
+		
+		public void setGenericos(Model model) {
+			model.addAttribute("menus", serviceMenu.buscarOfertas());
+		}
 		
 		
 		

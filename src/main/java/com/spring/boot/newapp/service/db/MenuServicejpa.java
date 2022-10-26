@@ -62,5 +62,6 @@ public class MenuServicejpa implements IMenuService {
 	public Page<Menu> buscarTodas(Pageable page) {
 		return menuRepo.findAll(page);
 	}
+	
 
 }
