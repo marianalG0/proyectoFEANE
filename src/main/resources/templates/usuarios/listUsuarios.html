@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <!-- Basic -->
+<meta charset="ISO-8859-1">
+
+<title>Tabla de usuarios</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+<!-- Basic -->
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!-- Mobile Metas -->
@@ -14,7 +19,8 @@
 
   <title> Feane </title>
 
-  <!-- bootstrap core css -->
+  <!-- bootstrap core css xd-->
+
   <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.css}" />
 
   <!--owl slider stylesheet -->
@@ -27,8 +33,8 @@
   <!-- Custom styles for this template -->
   <link th:href="@{/css/style.css}" rel="stylesheet" />
   <!-- responsive style -->
-  <link th:href="@{/css/responsive.css}" rel="stylesheet" />
-
+  <link th:href="@{css/responsive.css}" rel="stylesheet" />
+<link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
 </head>
 
 <body style="background-color:#FBF7E8">
@@ -60,9 +66,9 @@
                  <td th:text="${usuario.estatus==1 ? 'Activo' : 'No activo' }"></td>
           
                 <td>
-                    <a th:href="@{/usuarios/delete/{id} (id=${usuario.id}) }" onclick=" confirm('Â¿Estas seguro?')" class="btn btn-success btn-sm" role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
-                    <a href="#" onclick=" confirm('Â¿Quiere bloquear el acceso al usuario?')" class="btn btn-success btn-sm" role="button" title="Bloquear el acceso al sistema para este usuario."><i class="fas fa-lock" aria-hidden="true"></i></a>	
-                    <a href="#" onclick=" confirm('Â¿Desea desbloquear el usuario?')" class="btn btn-success btn-sm" role="button" title="Permitir el acceso al sistema a este usuario."><i class="fas fa-unlock" aria-hidden="true"></i></a>
+                    <a th:href="@{/usuarios/delete/{id} (id=${usuario.id}) }" onclick=" confirm('¿Estas seguro?')" class="btn btn-success btn-sm" role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
+                    <a href="#" onclick=" confirm('¿Quiere bloquear el acceso al usuario?')" class="btn btn-success btn-sm" role="button" title="Bloquear el acceso al sistema para este usuario."><i class="fas fa-lock" aria-hidden="true"></i></a>	
+                    <a href="#" onclick=" confirm('¿Desea desbloquear el usuario?')" class="btn btn-success btn-sm" role="button" title="Permitir el acceso al sistema a este usuario."><i class="fas fa-unlock" aria-hidden="true"></i></a>
                   </td>
                 </tr>
                                                
