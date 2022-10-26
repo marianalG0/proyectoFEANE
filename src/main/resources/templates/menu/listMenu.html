@@ -53,25 +53,40 @@
 <a class="btn btn-primary" th:href="@{/menu/create}" title="Crear nueva Oferta de Trabajo" role="button"><i class="fas fa-file" aria-hidden="true"></i> Nueva</a>            
 <hr>
 <div th:if="${msg != null}" class='alert alert-success' th:text="${msg}" style="text-align:center" role='alert'></div>
-    
- <table id="mytable" class="table table-striped table-hover table-bordered" style="background-color:#222831">
+   <div class="container"> 
+
+        <div class="card">
+    <div class="card-body"> 
+ <table class="table table-hover">
+  <thead class="thead-light">
 	<tr>
-		<!-- <th class="text-white">Id</th>-->
+	
+
+                  <th scope="col">Categoria</th>                  
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Fecha</th>
+                  <th scope="col">Estatus</th>
+                   <th scope="col">oferta</th>
+                 
+                  <th scope="col">Operaciones</th>
+	
+		<!-- <th class="text-white">Id</th>
 		<th class="text-white">Categoria</th>
 		<th class="text-white">Nombre</th>
 		<th class="text-white" scope="col">Fecha</th>
 		 <th class="text-white" scope="col">Estatus</th>
 		<th class="text-white">Oferta</th>
-		 <th class="text-white" scope="col">Operaciones</th> 
+		 <th class="text-white" scope="col">Operaciones</th> -->
 	</tr>
+	</thead>
 
 	<tr th:each="menu : ${menus}">
-	    <td class="text-white" th:text="${menu.categoria.nombre}"></td>
-		<td class="text-white" th:text="${menu.nombre}"></td>
-		<td class="text-white" th:text="${menu.fecha}"></td>
-		<td class="text-white" th:text="${menu.estatus}"></td>
+	    <td th:text="${menu.categoria.nombre}"></td>
+		<td th:text="${menu.nombre}"></td>
+		<td th:text="${menu.fecha}"></td>
+		<td th:text="${menu.estatus}"></td>
 		
-		<td class="text-white" th:text="${menu.oferta==1 ? 'SI' : 'NO' }"></td>
+		<td th:text="${menu.oferta==1 ? 'SI' : 'NO' }"></td>
 		<td>
             <a th:href="@{/menu/edit/{id} (id=${menu.id}) }" class="btn btn-success btn-sm" role="button" title="Editar el registro."><i class="fas fa-pencil-alt" aria-hidden="true"></i></a>
             <a th:href="@{/menu/delete/{id} (id=${menu.id}) }" onclick="return confirm('¿Estas seguro?')" class="btn btn-success btn-sm" role="button" title="Eliminar el registro."><i class="fas fa-trash" aria-hidden="true"></i></a>
@@ -79,6 +94,10 @@
 		
 </tr>
 </table>
+</div>
+</div>
+
+
 <nav th:if="${menus.totalPages > 0}"
 						aria-label="Page navigation example">
 						<ul class="pagination">
