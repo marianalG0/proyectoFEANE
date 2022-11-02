@@ -34,9 +34,16 @@ public class DatabaseWebSecurity extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 	// Los recursos estáticos no requieren autenticación
-				.antMatchers("/bootstrap/**","/css/**","/js/**", "/images/**", "/tinymce/**", "/logos/**").permitAll()
+				.antMatchers("/bootstrap/**",
+						"/css/**","/js/**", 
+						"/images/**", 
+						"/tinymce/**", 
+						"/logos/**").permitAll()
 	// Las vistas públicas no requieren autenticación
-				.antMatchers("/", "/signup", "/bcrypt/**", "/menu/view/**").permitAll()
+				.antMatchers("/", 
+						"/signup",
+						"/bcrypt/**", 
+						"/menu/view/**").permitAll()
 	// Asignar permisos a URLs por ROLES PARA QUE QUE DEPENDIENDO DEL ROL QUE TENGAS ES COMO VAS ACCEDER A LAS SECCIONES
 				.antMatchers("/menu/**").hasAnyAuthority("SUPERVISOR","ADMINISTRADOR")
 				.antMatchers("/categorias/**").hasAnyAuthority("SUPERVISOR","ADMINISTRADOR")
