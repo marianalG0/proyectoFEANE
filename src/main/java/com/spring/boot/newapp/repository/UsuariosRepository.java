@@ -6,4 +6,5 @@ import com.spring.boot.newapp.model.Usuario;
 
 public interface UsuariosRepository extends JpaRepository<Usuario, Integer> {
 
+	Usuario findByUsername(String username); // va buscar el nombre del usuario
 }

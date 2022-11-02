@@ -19,6 +19,7 @@ public interface IUsuariosService {
 	
 	// Ejercicio: Implementar metodo que recupera todos los usuarios. Usar la vista de listUsuarios.html
 	List<Usuario> buscarTodos();
+	Usuario buscarPorUsername(String username);
 }
 
 // Agregar al archivo menu.html el link para acceder al listado de  USUARIOS y congigurar el link del boton registrarse

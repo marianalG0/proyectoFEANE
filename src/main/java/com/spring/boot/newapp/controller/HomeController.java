@@ -60,7 +60,7 @@ public class HomeController {
 		} 
 		
 		//Encargado de renderizar la pagina principal
-		@GetMapping("/about") 
+		@GetMapping("/acerca") 
 		public String mostrarabout(Model model) {
 			return "sobre";
 		} 
@@ -71,7 +71,7 @@ public class HomeController {
 
 		}
 		
-		@GetMapping("/menu") 
+		@GetMapping("/cartmenu") 
 		public String mostrarmenu(Model model) {
 			List<Menu> lista = serviceMenu.buscarTodo();
 			model.addAttribute("menus", lista);
@@ -80,13 +80,13 @@ public class HomeController {
 		} 
 		
 		
-		@GetMapping("/sobre") 
+		/*@GetMapping("/sobre") 
 		public String mostrarsobre(Model model) {
 			List<Menu> lista = serviceMenu.buscarTodo();
 			model.addAttribute("menus", lista);
 			return "sobre";
 
-		} 
+		} */
 		
 
 		@GetMapping("/descuentos") 
