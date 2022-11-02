@@ -22,7 +22,7 @@
                 <a class="nav-link" th:href="@{/cartmenu}">Menu</a>
               </li>
               <li class="nav-item" sec:authorize="hasAnyAuthority('USUARIO','SUPERVISOR','ADMINISTRADOR')">
-                <a class="nav-link" th:href="@{/acerca}">About </a>
+                <a class="nav-link" th:href="@{/acerca}">Nosotros</a>
               </li>
               <li class="nav-item" sec:authorize="hasAnyAuthority('SUPERVISOR','ADMINISTRADOR')">
                 <a class="nav-link" th:href="@{/categorias/indexPaginate}">Categorias </a>
