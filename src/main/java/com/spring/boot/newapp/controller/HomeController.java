@@ -8,6 +8,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,21 +20,20 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.spring.boot.newapp.model.Compras;
 import com.spring.boot.newapp.model.Menu;
 import com.spring.boot.newapp.model.Perfil;
 import com.spring.boot.newapp.model.Usuario;
 import com.spring.boot.newapp.service.ICategoriasService;
-import com.spring.boot.newapp.service.IComprasService;
 import com.spring.boot.newapp.service.IMenuService;
 import com.spring.boot.newapp.service.IUsuariosService;
+
+import net.itinajero.model.Vacante;
 
 
 @Controller
@@ -165,9 +166,24 @@ public class HomeController {
 			System.out.println("Menu: " + compras);		
 			return "redirect:/menu/indexPaginate";
 		}*/
-		
+		@GetMapping("/search")
+		public String buscar(@ModelAttribute("search") Menu menu) {
+			System.out.println("buscando por" + menu);
+			return "home";
+			
+			
+		}
+		@ModelAttribute
 		public void setGenericos(Model model) {
-			model.addAttribute("menus", serviceMenu.buscarOfertas());
+			Menu menuSearch = new Menu();
+			menuSearch.reset();
+		 	model.addAttribute("vacantes", serviceMenu.buscarTodo());
+			model.addAttribute("categorias", serviceCategorias.buscarTodas());
+		model.addAttribute("search", menuSearch);
+		
+
+
+		
 		}
 		// FIN DE LOS USUARIOS
 		@InitBinder
