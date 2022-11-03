@@ -23,4 +23,6 @@ public interface IMenuService {
 	List<Menu> buscarByExample(Example<Menu> example);
 	
 	Page<Menu>buscarTodas(Pageable page);
+	
+
 }

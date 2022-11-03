@@ -44,7 +44,7 @@
             <div class="card">
               <h4 class="card-header"> <strong th:text="${menu.nombre}"></strong></h4>              
               <div class="card-body">
-                <h5 class="card-title"><strong>Categoría: </strong> <span th:if="${menu.categoria.nombre}" class="text-white btn btn-warning">Hamburguesa</span></h5>                
+                <h5 class="card-title"><strong>Categoría: </strong> <span th:text="${menu.categoria.nombre}" class="text-white btn btn-warning">Hamburguesa</span></h5>                
                 <h6 class="card-title"><strong>Precio: </strong><span th:text="${menu.precio}"></span></h6>
            
                 <h6 class="card-title"><strong>Descuento: </strong><span th:text="${menu.descuento}"></span></h6>
