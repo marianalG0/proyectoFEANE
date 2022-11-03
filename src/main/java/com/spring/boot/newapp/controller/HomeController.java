@@ -71,8 +71,7 @@ public class HomeController {
 	//Encargado de renderizar la pagina principal
 		@GetMapping("/") 
 		public String mostrarHome(Model model) {
-			List<Menu> lista = serviceMenu.buscarTodo();
-			model.addAttribute("menus", serviceMenu.buscarOfertas());
+			List<Menu> lista = serviceMenu.buscarEstatus();
 			model.addAttribute("menus", lista);
 			return "home";
 
@@ -96,7 +95,7 @@ public class HomeController {
 		
 		@GetMapping("/descuentos") 
 		public String mostrardesc(Model model) {
-			List<Menu> lista = serviceMenu.buscarTodo();
+			List<Menu> lista = serviceMenu.buscarOfertas();
 			model.addAttribute("menus", lista);
 			return "descuentos";
 		} 
@@ -183,13 +182,14 @@ public class HomeController {
 			
 			
 		}
+		
 		@ModelAttribute
 		public void setGenericos(Model model) {
 			Menu menuSearch = new Menu();
 			menuSearch.reset();
 
 		 	model.addAttribute("menu", serviceMenu.buscarOfertas());
-		 	model.addAttribute("menu", serviceMenu.buscarTodo());
+		 	model.addAttribute("menu", serviceMenu.buscarEstatus());
 			model.addAttribute("categorias", serviceCategorias.buscarTodas());
 		    model.addAttribute("search", menuSearch);
 		

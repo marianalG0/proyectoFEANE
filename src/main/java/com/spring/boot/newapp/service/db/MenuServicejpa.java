@@ -62,6 +62,12 @@ public class MenuServicejpa implements IMenuService {
 	public Page<Menu> buscarTodas(Pageable page) {
 		return menuRepo.findAll(page);
 	}
+
+	@Override
+	public List<Menu> buscarEstatus() {
+		// TODO Auto-generated method stub
+		return menuRepo.findByEstatus("Aprobada");
+	}
 	
 
 }

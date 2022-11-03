@@ -18,6 +18,8 @@ public interface IMenuService {
 	
 	List<Menu> buscarOfertas();
 	
+	List<Menu> buscarEstatus();
+	
 	void eliminar(Integer idmenu);
 	
 	List<Menu> buscarByExample(Example<Menu> example);
