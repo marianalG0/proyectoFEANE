@@ -126,24 +126,6 @@
   </div>
 
   <!-- offer section -->
-
-  <div class="jumbotron">
-        <div class="container">
-          <h3>Encuentra la comida que estas buscando.</h3>
-          Puedes buscar por descripción y categoría.
-          <form class="form-inline" method="get" th:action="@{/search}" th:object="${search}">
-            <input type="text" class="form-control mb-3" th:field="*{descripcion}" placeholder="Escriba una búsqueda">&nbsp;
-             <select  th:field="*{categoria.id}" class="custom-select custom-select mb-3">
-            <option th:value="${null}" selected>Seleccione una categoría</option>
-             <option th:each="categoria : ${categorias}"
-                      th:value="${categoria.id}"
-                      th:text="${categoria.nombre}"></option>
-              
-            </select>&nbsp;
-            <button type="submit" class="btn btn-primary mb-3">Buscar</button>
-          </form>
-        </div>
-      </div>
   <section class="offer_section layout_padding-bottom">
     <div class="offer_container">
       <div class="container ">
@@ -227,6 +209,23 @@
 
   <!-- food section -->
  
+ <div class="jumbotron">
+        <div class="container">
+          <h3>Encuentra la comida que estas buscando.</h3>
+          Puedes buscar por descripción y categoría.
+          <form class="form-inline" method="get" th:action="@{/search}" th:object="${search}">
+            <input type="text" class="form-control mb-3" th:field="*{descripcion}" placeholder="Escriba una búsqueda">&nbsp;
+             <select  th:field="*{categoria.id}" class="custom-select custom-select mb-3">
+            <option th:value="${null}" selected>Seleccione una categoría</option>
+             <option th:each="categoria : ${categorias}"
+                      th:value="${categoria.id}"
+                      th:text="${categoria.nombre}"></option>
+              
+            </select>&nbsp;
+            <button type="submit" class="btn btn-primary mb-3">Buscar</button>
+          </form>
+        </div>
+      </div>
 
   <section class="food_section layout_padding-bottom">
     <div class="container">

@@ -38,11 +38,11 @@ public class DatabaseWebSecurity extends WebSecurityConfigurerAdapter {
 						"/css/**","/js/**", 
 						"/images/**", 
 						"/tinymce/**",
-						"/search",
 						"/logos/**").permitAll()
 	// Las vistas públicas no requieren autenticación
 				.antMatchers("/", 
 						"/signup",
+						"/search",
 						"/bcrypt/**", 
 						"/menu/view/**").permitAll()
 	// Asignar permisos a URLs por ROLES PARA QUE QUE DEPENDIENDO DEL ROL QUE TENGAS ES COMO VAS ACCEDER A LAS SECCIONES

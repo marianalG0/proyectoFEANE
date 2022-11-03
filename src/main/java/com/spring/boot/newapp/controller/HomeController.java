@@ -36,12 +36,16 @@ import com.spring.boot.newapp.service.IUsuariosService;
 
 @Controller
 public class HomeController {
+	
 	@Autowired
 	private ICategoriasService serviceCategorias;
+	
 	@Autowired
     private IUsuariosService serviceUsuarios;
+	
 	@Autowired
 	private IMenuService serviceMenu;
+	 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
@@ -168,9 +172,13 @@ public class HomeController {
 		public String buscar(@ModelAttribute("search") Menu menu, Model model) {
 			System.out.println("buscando por" + menu);
 		
-			Example<Menu> example = Example.of(menu);
+			ExampleMatcher matcher = ExampleMatcher.
+			// where descripcion like '%?%'
+				    matching().withMatcher("descripcion", ExampleMatcher.GenericPropertyMatchers.contains());
+
+			Example<Menu> example = Example.of(menu, matcher);
 			List<Menu> lista = serviceMenu.buscarByExample(example);
-			model.addAttribute("menu", lista);
+			model.addAttribute("menus", lista);
 			return "home";
 			
 			
@@ -179,9 +187,11 @@ public class HomeController {
 		public void setGenericos(Model model) {
 			Menu menuSearch = new Menu();
 			menuSearch.reset();
+
+		 	model.addAttribute("menu", serviceMenu.buscarOfertas());
 		 	model.addAttribute("menu", serviceMenu.buscarTodo());
 			model.addAttribute("categorias", serviceCategorias.buscarTodas());
-		model.addAttribute("search", menuSearch);
+		    model.addAttribute("search", menuSearch);
 		
 
 
