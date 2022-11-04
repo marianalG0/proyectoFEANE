@@ -59,10 +59,7 @@ public class HomeController {
 	@GetMapping("/detalle")
 	public String mostrarDetalle(Model model) {
 		Menu menu = new Menu(); 
-		menu.setNombre("Deliciosa hambuerguesa");
-		menu.setDescripcion("Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit,");
-		menu.setPrecio(80.0);
-		menu.setDescuento(16);
+		
 		model.addAttribute("menu", menu);
 		return "detalle";
 	}
