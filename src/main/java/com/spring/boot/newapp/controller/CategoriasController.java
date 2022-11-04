@@ -50,7 +50,7 @@ public class CategoriasController {
 	@RequestMapping(value="/save", method=RequestMethod.POST)
 	public String guardar(Categoria categoria, BindingResult result, RedirectAttributes attributes) {
 		if (result.hasErrors()){		
-			System.out.println("Existieron errores");
+			System.out.println("Existieron errores, por favor corrijalo");
 			return "categorias/formCategoria";
 		}	
 		
