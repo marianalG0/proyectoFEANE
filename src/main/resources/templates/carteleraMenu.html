@@ -27,6 +27,7 @@
 
   <!-- Custom styles for this template -->
   <link th:href="@{/css/style.css}" rel="stylesheet" />
+  <link th:href="@{/css/style2.css}" rel="stylesheet" />
   <!-- responsive style -->
   <link th:href="@{/css/responsive.css}" rel="stylesheet" />
 
@@ -64,12 +65,12 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    <strong>Nombre: </strong> <span class="item-title" th:text="${menu.nombre}"></span>
+                    <strong></strong> <span class="item-title" th:text="${menu.nombre}"></span>
                   </h5>
                   <p th:text="${menu.descripcion}">
                   </p>
                   <div class="options">
-                    <h6>
+                    <h6>$
                       <span class="item-price" th:text="${menu.precio}"></span>
                     </h6>
                      <a class="btn" th:href="@{/menu/view/{id} (id=${menu.id}) }" role="button">&raquo;</a>
