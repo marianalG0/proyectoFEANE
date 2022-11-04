@@ -86,7 +86,7 @@ public class HomeController {
 		
 		@GetMapping("/cartmenu") 
 		public String mostrarmenu(Model model) {
-			List<Menu> lista = serviceMenu.buscarOfertas();
+			List<Menu> lista = serviceMenu.buscarEstatus();
 			model.addAttribute("menus", lista);
 			return "carteleraMenu";
 
