@@ -73,7 +73,7 @@ public class CategoriasController {
 			attributes.addFlashAttribute("msg","La categoria esta asignada a un vacante, no es posible eliminarse");
 		}
 		
-		return "redirect:/categorias/index";
+		return "redirect:/categorias/indexPaginate";
 	}
 	
 	//Metodo que va a buscar por id el objeto y lo enviara al formulario
