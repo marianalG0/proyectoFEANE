@@ -74,12 +74,13 @@ public class HomeController {
 
 		} 
 		
-		//Encargado de renderizar la pagina principal
+		//Renderiza la vista de acerca
 		@GetMapping("/acerca") 
 		public String mostrarabout(Model model) {
 			return "sobre";
 		} 
 		
+		//Renderiza la vista de la cartelera
 		@GetMapping("/cartmenu") 
 		public String mostrarmenu(Model model) {
 			List<Menu> lista = serviceMenu.buscarEstatus();
@@ -88,6 +89,7 @@ public class HomeController {
 
 		} 
 		
+		//Renderiza la vista de descuentos
 		@GetMapping("/descuentos") 
 		public String mostrardesc(Model model) {
 			List<Menu> lista = serviceMenu.buscarOfertas();
