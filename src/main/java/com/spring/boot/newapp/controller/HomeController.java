@@ -79,7 +79,6 @@ public class HomeController {
 		public String mostrarabout(Model model) {
 			return "sobre";
 		} 
-	
 		
 		@GetMapping("/cartmenu") 
 		public String mostrarmenu(Model model) {
@@ -88,7 +87,6 @@ public class HomeController {
 			return "carteleraMenu";
 
 		} 
-		
 		
 		@GetMapping("/descuentos") 
 		public String mostrardesc(Model model) {
