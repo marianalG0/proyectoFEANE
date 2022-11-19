@@ -70,7 +70,7 @@ public class CategoriasController {
 			attributes.addFlashAttribute("msg","La categoria fue eliminada");
 			//model.addAttribute("id",idVacante); //No agregamos id al modelo por eso se elimina
 		}catch(Exception e){
-			attributes.addFlashAttribute("msg","La categoria esta asignada a un vacante, no es posible eliminarse");
+			attributes.addFlashAttribute("msg","La categoria esta asignada a una comida, no es posible eliminarse");
 		}
 		
 		return "redirect:/categorias/indexPaginate";

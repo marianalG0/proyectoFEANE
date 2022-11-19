@@ -152,7 +152,7 @@ public class HomeController {
 			serviceUsuarios.guardar(usuario); 
 			attributes.addFlashAttribute("msg", "Los datos se guardaron correctamente"); 	
 			// Ejercicio realizar
-			return "redirect:/usuarios/index";
+			return "redirect:/";
 		}
 		
 		/**@PostMapping("/save")
